@@ -1,0 +1,78 @@
+<ng-container>
+    <div class="container">
+        <form [formGroup]="detailForm" (ngSubmit)="create()">
+            <div class="box mb-32">
+                <div class="box-body">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="fax" class="label"> Mã</label>
+                                <input type="text" class="form-control" id="code" [(ngModel)]="comicDetail.code"
+                                    maxlength="300" formControlName="code">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="fax" class="label"> Tên</label>
+                                <input type="text" class="form-control" id="name" [(ngModel)]="comicDetail.name"
+                                    maxlength="300" formControlName="name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="type" class="label"> Thể loại</label>
+                                <input type="text" class="form-control" id="type" [(ngModel)]="comicDetail.type"
+                                    maxlength="300" formControlName="type">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="author" class="label"> Tác giả</label>
+                                <input type="text" class="form-control" id="author" [(ngModel)]="comicDetail.author"
+                                    maxlength="300" formControlName="author">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="description" class="label"> Mô tả</label>
+                                <textarea type="text" class="form-control" id="description" [(ngModel)]="comicDetail.description"
+                                    maxlength="300" formControlName="description">
+                                </textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="publishedAt" class="label"> Ngày xuất bản</label>
+                                <input type="date" class="form-control" id="publishedAt" [(ngModel)]="comicDetail.publishedAt"
+                                    maxlength="300" formControlName="publishedAt">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="content" class="label">Ảnh đại diện</label>
+                                <br>
+                                <div class="my-image">
+                                    <input type="file" class="form-control" id="imagePath" formControlName="imagePath"
+                                        (change)="onFileSelected($event)" />
+                                    <label for="content">
+                                        <img [src]="image" alt="abc">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 d-flex justify-content-start">
+                        <button type="submit" class="btn btn-allow">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>

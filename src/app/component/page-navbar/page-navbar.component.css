@@ -1,0 +1,105 @@
+@media (min-width : 576px) {
+    .dropdown:hover > .dropdown-menu{
+        display: flex;
+        margin-top: 0;
+    }
+    .dropdown:hover .nav-link{
+        background-color: #fff;
+        color: purple;
+    }
+}
+
+nav{
+    padding: 0px;
+    margin: 0px;
+}
+
+.bg-div{
+    width: 67%;
+}
+
+nav.header {
+    height: 50px;
+    background-image: url(https://st.nettruyento.com/Data/Sites/1/skins/comic/images/bg_header_2017.jpg);
+}
+
+nav.header1 {
+    height: 41px;
+    position: relative;
+    top:0px;
+    background-color: #e4e4e4;
+}
+
+.navbar-brand {
+    padding-right: 50px;
+}
+
+.search-box {
+    width: 400px;
+    margin-right: 60px;
+}
+
+.search-box input {
+    padding: 5px;
+    margin-right: 0px;
+    border-radius: 0px;
+    min-width : 100px;
+    background-color: #fff;
+    border: none;
+}
+
+.search-box button {
+    padding:5px 10px ;
+    border-radius: 0px;
+    background-color: #fff;
+    border: none;
+}
+
+.search-box button:hover {
+    background-color: #ccc;
+    border: none;
+}
+
+.theme-color {
+    margin-right: 10px;
+}
+
+.notice {
+    margin-right: 80px;
+}
+
+ul{
+    margin-bottom: 0;
+}
+
+ul li{
+    font-weight : 400;
+    font-family: Tahoma,sans-serif,Helvetica,Arial;
+    font-size: 14px;
+    display: inline;
+    color: #fff;
+}
+
+.become-user a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.become-user a:hover{
+    text-decoration: underline;
+    color: #fff;
+} 
+
+.item{
+    height: 100%;
+    padding: 8px;
+}
+
+.bg-div .nav-link:hover {
+    background-color: #fff;
+    color: purple;
+}
+
+.list-ul2{
+    flex-direction: row;
+}

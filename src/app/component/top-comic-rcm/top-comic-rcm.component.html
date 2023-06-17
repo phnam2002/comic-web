@@ -1,0 +1,85 @@
+<nav>
+    <div class="page-title">
+        <h2>Truyện hot</h2>
+    </div>
+    <div class="nav nav-tabs .nav-fill" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+            role="tab" aria-controls="nav-home" aria-selected="true">Tất cả</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+            role="tab" aria-controls="nav-profile" aria-selected="false">Con trai</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+            role="tab" aria-controls="nav-contact" aria-selected="false">Con gái</button>
+    </div>
+</nav>
+
+<div class="tab-content .nav-fill" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container" *ngFor="
+        let item of asyncData ; let i = index ">
+                <span class="txt-rank pos1">0{{i+1}}</span>
+                <div class="t-item comic-item" data-id="17696">
+                    <a class="thumb" title="" href="">
+                        <img class="slide-img" [src]="item.image | async" alt="">
+                    </a>
+                    <h3 class="title">
+                        <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{
+                            item.name
+                            }} </a>
+                    </h3>
+                    <p class="chapter top" *ngIf="item.chapter">
+                        <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
+                            {{item.chapter[0].chap}}</a>
+                        <span class="view pull-right">
+                            <i class="fa fa-eye">
+                            </i> {{item.viewCount}}</span>
+                    </p>
+                </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="container" *ngFor="
+        let item of asyncData ; let i = index ">
+                <span class="txt-rank pos1">0{{i+1}}</span>
+                <div class="t-item comic-item" data-id="17696">
+                    <a class="thumb" title="" href="">
+                        <img class="slide-img" [src]="item.image | async" alt="">
+                    </a>
+                    <h3 class="title">
+                        <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{
+                            item.name
+                            }} </a>
+                    </h3>
+                    <p class="chapter top" *ngIf="item.chapter">
+                        <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
+                            {{item.chapter[0].chap}}</a>
+                        <span class="view pull-right">
+                            <i class="fa fa-eye">
+                            </i> {{item.viewCount}}</span>
+                    </p>
+                </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="container" *ngFor="
+        let item of asyncData ; let i = index ">
+                <span class="txt-rank pos1">0{{i+1}}</span>
+                <div class="t-item comic-item" data-id="17696">
+                    <a class="thumb" title="" href="">
+                        <img class="slide-img" [src]="item.image | async" alt="">
+                    </a>
+                    <h3 class="title">
+                        <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{
+                            item.name
+                            }} </a>
+                    </h3>
+                    <p class="chapter top" *ngIf="item.chapter">
+                        <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
+                            {{item.chapter[0].chap}}</a>
+                        <span class="view pull-right">
+                            <i class="fa fa-eye">
+                            </i> {{item.viewCount}}</span>
+                    </p>
+                </div>
+        </div>
+    </div>
+</div>

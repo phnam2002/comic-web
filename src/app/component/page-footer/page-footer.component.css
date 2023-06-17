@@ -1,0 +1,35 @@
+.abc {
+    background-color: #222222;
+}
+
+.container{
+    width: 67%;
+}
+
+a,p,h5 {
+    color: #fff !important;
+}
+
+.information{
+    display: flex;
+}
+
+.information>p{
+    margin-right: 10px;
+}
+
+h5{
+    margin-bottom: 20px;
+}
+
+div>ul {
+    flex-direction: row!important;
+}
+
+div>ul>li {
+    margin: 0px 10px;
+    padding: 3px 7px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    /* border-color: pink; */
+}

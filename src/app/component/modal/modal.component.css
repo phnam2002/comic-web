@@ -1,0 +1,57 @@
+#cluetip{
+    display: block;
+    /* position: absolute; */
+    background-color: #fff;
+    width: 325px;
+    border: 1px solid #333;
+    opacity: 1;
+    padding: 5px;
+    text-align: left;
+    top: 0;
+    z-index: 9999!important;
+}
+
+.title{
+    background: none repeat scroll 0 0 #fff;
+    color: #333;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 5px 0 8px;
+}
+
+.box-img {
+    float: left;
+    width: 115px;
+    padding-right: 5px;
+}
+
+img{
+    max-width: 100%;
+}
+
+#cluetip  .message-main p {
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    width: 192px;
+    float: right;
+    line-height: 22px;
+    overflow: hidden;
+}
+
+#cluetip  .message-main p label{
+    color: #059e9a;
+    float: left;
+    font-weight: 700;
+    margin: 0;
+    margin-right: 2px;
+}
+
+#cluetip .box_text {
+    padding: 5px 0px;
+    text-align: justify;
+    max-height: 167px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

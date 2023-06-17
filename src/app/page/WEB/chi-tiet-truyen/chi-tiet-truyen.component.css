@@ -1,0 +1,257 @@
+.background {
+    background-color: white;
+    margin-right: 0px;
+}
+
+.action{
+    text-decoration: none;
+    color: #288ad6;
+    cursor: pointer;
+}
+
+.action:hover{
+    text-decoration: underline;
+    color: #ae4ad9;
+    cursor: pointer;
+    outline: 0;
+}
+
+.container .row {
+    padding: 0px;
+}
+
+.page-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#item-detail {
+    font-weight: 400;
+    font-size: 21px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+}
+
+.comic-title .small {
+    line-height: 1;
+    font-size: 13px;
+    font-style: italic;
+    opacity: .7;
+    text-align: center;
+    padding: 5px 0 10px;
+}
+
+.col-sm-4>img {
+    width: 200px;
+    height: 250px;
+}
+
+.list-info {
+    text-align: left;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.detail-info {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0;
+    text-transform: inherit;
+    color: #777676;
+}
+
+.list-info>li {
+    display: block;
+    margin: 0 0 7px;
+}
+
+.button>a {
+    padding: 6px 0;
+    width: 96px;
+    display: inline-block;
+    margin-bottom: 0;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    user-select: none;
+    text-align: center;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.btn-follow {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-read-option {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.btn-read-continue {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-follow span {
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+/*css phần mô tả  */
+
+.align-left{
+    text-align: left;
+}
+
+.page-item{
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+    font-weight: 300;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 10px 0;
+    padding-bottom: 2px;
+}
+
+.btn-chapter-add{
+    color: #fff;
+    background-color: #2980b9;
+    border-color: #2980b9;
+    text-decoration: none;
+    padding: 5px;
+    margin-bottom: 100px;
+}
+
+span:not(.note) {
+    font-size: .9rem;
+    line-height: 14px
+}
+
+.note-text {
+    height: 2.45rem;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    text-align: justify;
+
+}
+
+/*Using after ( if we want two lines)*/
+.note-field:not(.show)::after {
+    /* content: '...'; */
+    padding-left: .5rem;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.show {
+    overflow: visible;
+    text-overflow: none;
+    height: auto;
+}
+
+.show-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: cornflowerblue;
+    cursor: pointer;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+.heading{
+    padding: 5px 10px 5px 5px;
+    font-size: 17px;
+}
+
+.no-wrap{
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.chapter-list{
+    border: solid 1px #ddd;
+    padding: 5px;
+    border-radius: 5px; 
+}
+
+.chapter-list>.chapter-info{
+    width: 100%;
+    border-bottom: 1px dashed #ddd;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 0px;
+    margin: 0;
+}
+/* 
+.chapter-list>.chapter-info>.chapter-number{
+    width: 100%;
+    border-bottom: 1px dashed #ddd;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 6px 0px;
+    margin: 0;
+} */
+
+.chapter-list>.button-show-more{
+    width: 100%;
+    padding: 6px 0px;
+    margin: 0;
+}
+
+.chapter-list>.button-show-more>button{
+    width: 100%;
+    border: 0px;
+    padding: 6px 0px;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #ebebeb;
+    /* line-height: 35px; */
+}
+
+.chapter-number{
+    padding-left: 0px;
+}
+
+#chapter-number>a{
+    color: #333;
+    text-decoration: none;
+}
+
+#chapter-number>a:hover{
+    text-decoration: none;
+    color: #03f;
+}
+
+.small{
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
+}
+
+.chapter-paging{
+    text-align: center;
+    margin-top: 15px;
+}
+
+

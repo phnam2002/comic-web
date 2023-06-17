@@ -1,0 +1,164 @@
+<ng-container>
+    <div class="container background">
+        <div class="row page-title">
+            <ul class=" page-list">
+                <li>Trang chủ </li>
+                <li>Thể loại</li>
+                <li>Kingdom - Vương Giả Thiên Hạ</li>
+            </ul>
+            <div class="col-sm-8">
+                <div class="comic-title">
+                    <h1 id="item-detail">{{comicDetail.name}}</h1>
+                    <p class="small">[Cập nhật lúc: {{comicDetail.updatedAt | date:'HH:mm:ss dd/MM/yyyy'}}] </p>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img [src]="image" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <ul class="list-info">
+                            <li class="detail-info">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fa fa-user"></i> Tác giả
+                                    </div>
+                                    <div class="col-8">
+                                        {{comicDetail.author}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="detail-info">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fa fa-rss"></i> Tình trạng
+                                    </div>
+                                    <div class="col-8">
+                                        {{comicDetail.status}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="detail-info">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fa fa-tags"></i> Thể loại
+                                    </div>
+                                    <div class="col-8">
+                                        {{comicDetail.type}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="detail-info">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fa fa-eye"></i> Lượt xem
+                                    </div>
+                                    <div class="col-8">
+                                        {{comicDetail.viewCount}}
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="title slide-title action"
+                                    [routerLink]="['/chi-tiet-truyen', comicDetail.id]">{{comicDetail.name}}</a>
+                                Xếp hạng 3.7/5 - 74671 Lượt đánh giá.
+                            </li>
+                            <li>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </li>
+                            <div class="button">
+                                <a class="btn-follow action" href=""><i class="fa fa-heart"></i> Theo dõi</a>
+                                <span>126.233 Lượt theo dõi</span>
+                            </div>
+                            <div class="button">
+                                <a class="btn-read-option action" href="">Đọc từ đầu</a>
+                                <a class="btn-read-option action" href="">Đọc mới nhất</a>
+                                <a class="btn-read-continue action" href="">Đọc tiếp <i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-description align-left">
+                    <h3 class="page-item"><i class="fa fa-file-text-o"></i> Nội dung</h3>
+                    <div *ngIf="comicDetail.description == '' || this.comicDetail.description == null ; else other">
+                        <div class="note-field">
+                            <div class="note">
+                                <a class="title slide-title action" [routerLink]="['/trang-chu']">Truyện tranh </a>
+                                <a class="title slide-title action"
+                                    [routerLink]="['chi-tiet-truyen', comicDetail.id]">{{comicDetail.name}}</a>
+                                được cập nhật nhanh và đầy đủ nhất tại NetTruyen. Bạn đọc đừng quên để lại bình luận và
+                                chia
+                                sẻ, ủng hộ NetTruyen ra các chương mới nhất của truyện
+                                <a class="title slide-title action"
+                                    [routerLink]="['chi-tiet-truyen', comicDetail.id]">{{comicDetail.name}}.</a>
+                            </div>
+                        </div>
+                        <!-- <span>{{ data.note }}</span> -->
+                    </div>
+                    <ng-template #other>
+                        <div>
+                            <div #content class="note-field" [class.show]="show"
+                                [class.note-text]="content.scrollHeight > 18">
+                                <div class="note">
+                                    {{comicDetail.description}}
+                                </div>
+                            </div>
+                        </div>
+                        <button *ngIf="content.scrollHeight > 18" class="show-button" (click)="show = !show">
+                            {{ show ? 'Thu gọn' : 'Xem thêm' }}
+                        </button>
+                    </ng-template>
+
+                </div>
+                <div class="align-left">
+                    <h3 class="page-item"><i class="fa fa-list"></i> Danh sách chương
+                    </h3>
+                    <a class="btn-chapter-add" [routerLink]="['them-chap', comicDetail.id]"><i class="fa fa-plus"></i> Thêm chương</a>
+
+                    <div class="row">
+                        <div class="col-sm-6 no-wrap">Số chương</div>
+                        <div class="col-sm-4 no-wrap">Cập nhật</div>
+                        <div class="col-sm-2 no-wrap">Xem</div>
+                    </div>
+                    <div class="chapter-list" *ngIf="this.comicDetail">
+                        <ng-container *ngFor="
+                                  let item of this.comicDetail.chapter;let i = index
+                                  ">
+                            <div class="row chapter-info" *ngIf="i < 10">
+                                <div id="chapter-number" class="col-sm-6 no-wrap">
+                                    <a href="" [routerLink]="['/chi-tiet-chap',item.id]">Chapter {{item.chap}}</a>
+                                </div>
+                                <div class="col-sm-4 no-wrap small">{{item.updatedAt | date:'HH:mm:ss dd/MM/yyyy'}}
+                                </div>
+                                <div class="col-sm-2 no-wrap small">{{item.viewCount}}</div>
+                            </div>
+                            <div class="row chapter-info" *ngIf="i > 9 && showAdditionalRows">
+                                <div id="chapter-number" class="col-sm-6 no-wrap">
+                                    <a href="" [routerLink]="['chi-tiet-chap',item.id]">Chapter {{item.chap}}</a>
+                                </div>
+                                <div class="col-sm-4 no-wrap small">{{item.updatedAt | date:'HH:mm:ss dd/MM/yyyy'}}
+                                </div>
+                                <div class="col-sm-2 no-wrap small">{{item.viewCount}}</div>
+                            </div>
+                        </ng-container>
+                        <div class="row button-show-more " *ngIf="!showAdditionalRows && this.chapterLength > 9">
+                            <button class="action" (click)="onShowMoreClicked()"><i class="fa fa-plus">
+                                </i> Xem thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="admin-job">
+                    <app-top-comic-rcm></app-top-comic-rcm>
+                </div>
+                <!-- <div class="admin-job">abc</div>
+                <div class="admin-job">abc</div> -->
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,68 @@
+<ng-container>
+    <div class="container background">
+        <div class="row page-title">
+            <ul class=" page-list">
+                <li>Trang chủ </li>
+                <li>Thể loại</li>
+                <li>Kingdom - Vương Giả Thiên Hạ</li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-end">
+            <h1 class="prm-title" *ngIf="chapterDetail.comic">
+                <a href="">{{chapterDetail.comic.name}}</a>
+                <span class="prm-title">- Chapter {{chapterDetail.chap}} </span>
+            </h1>
+            <i class="small"> [Cập nhật lúc: {{chapterDetail.updatedAt}}] </i>
+        </div>
+        <div class="reading-control">
+            <div class="mrb5">
+                <div>
+                    Nếu không xem được ảnh vui lòng đổi "SERVER ẢNH" bên dưới (Đang cập nhật)
+                </div>
+                <div class="mrt10">
+                    <a class="loadchapter btn btn-success mrb5" href="">Server 1</a>
+                    <a class="loadchapter btn btn-primary mrb5" href="">Server 2</a>
+                    <a class="loadchapter btn btn-primary mrb5" href="">Server VIP</a>
+                    <a class="loadchapter btn btn-primary mrb5" href="">Server VIP 2</a>
+                </div>
+            </div>
+            <div class="mb10">
+                <a class="alertError btn btn-warning" href="">
+                    <i class="fa fa-exclamation-triangle"></i> Báo lỗi
+                </a>
+            </div>
+            <div class="alert alert-info mrb10 hidden-xs hidden-sm">
+                <i class="fa fa-info-circle"></i> <em>Sử dụng mũi tên trái (←) hoặc phải (→) để chuyển chapter</em>
+            </div>
+
+            <div class="chapter-nav" id="chapterNav">
+                <a class="home" href="/" title="Trang chủ"><i class="fa fa-home"></i></a>
+                <a class="home backward" href="" title=""><i class="fa fa-list"></i></a>
+                <a class="home changeserver" href="#" title="Đổi server"><i
+                        class="fa fa-undo error"></i><span>1</span></a>
+                <a href="#" class="prev a_prev disabled"><i class="fa fa-chevron-left"></i></a>
+
+                <!-- <ng-select class="select-chapter" [items]="cities | async" >
+                </ng-select> -->
+
+                <select name="ctl00$mainContent$ddlSelectChapter" id="ctl00_mainContent_ddlSelectChapter"
+                    class="select-chapter" data-live-search="">
+                    <option  value="">Chapter 0</option>
+                </select>
+                <a href="" class="next a_next"><i class="fa fa-chevron-right"></i></a>
+                <a class="follow-link btn btn-success" href="" data-id="86129"><i class="fa fa-heart"></i> <span> Theo
+                        dõi</span></a>
+            </div>
+        </div>
+        <div class="image-background" *ngIf="urls">
+            <ng-container *ngFor="let url of urls">
+                <img [src]="url|async" alt="">
+            </ng-container>
+        </div>
+        <div class="chapter-nav-bottom text-center">
+            <a href="" class="btn btn-danger disabled"><i class="fa fa-chevron-left"></i> Chap trước</a>
+            <a href="" class="btn btn-danger">Chap sau <i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,45 @@
+<nav class="navbar bg-light header">
+    <div class="container-fluid bg-div">
+      <a class="navbar-brand" href="#" role="button">
+        <img src="https://st.nettruyento.com/data/logos/logo-nettruyen.png" alt="Trang chủ">
+      </a>
+      <form class="d-flex search-box" role="search">
+        <input class="form-control" type="search" placeholder="Tìm truyện . . . " aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">
+          <i class="fa-solid fa-magnifying-glass" style="color: #333;"></i>
+        </button>
+      </form>
+  
+      <a class="theme-color" href="#" role="button">
+        <i class="fa-solid fa-lightbulb fa-xl" style="color: #ffffff;"></i>
+      </a>
+      <a class="notice" href="#" role="button">
+        <i class="fa-sharp fa-solid fa-comment fa-xl" style="color: #ffffff;"></i>
+      </a>
+  
+      <ul class="become-user" *ngIf="!this.currentUser">
+        <li>
+          <a class="login-link" routerLink="login" href="/">Đăng nhập </a>
+        </li>
+        <li>/</li>
+        <li>
+          <a class="register-link" href="/">Đăng ký</a>
+        </li>
+      </ul>
+  
+      <ul class="nav-account list-inline hidden-xs pull-right" *ngIf="this.currentUser">
+        <li class="dropdown">
+          <a data-toggle="dropdown" class="user-menu fn-userbox dropdown-toggle"
+            href=""><img class="fn-thumb" alt="Avatar"
+              src="//st.ntcdntempv3.com/data/siteimages/anonymous.png"> <span>Cá nhân</span> <i
+              class="fa fa-caret-down"></i>
+            </a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" href="/Secure/Dashboard.aspx"><i class="fa fa-user"></i> Trang cá nhân</a></li>
+            <li><a rel="nofollow" href="/Secure/ComicFollowed.aspx"><i class="fa fa-book"></i> Truyện theo dõi</a></li>
+            <li><a rel="nofollow" class="user-logout" href="" type="button" (click)="logout()"><i class="fa fa-sign-out"></i> Thoát</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
