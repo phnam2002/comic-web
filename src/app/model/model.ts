@@ -1,5 +1,10 @@
 import { Observable } from "rxjs";
 
+export interface NgParam {
+        key: string;
+        value: string;
+      }
+
 export class BaseResponse<T> {
         [x: string]: any;
         errorCode?: string;
@@ -114,3 +119,19 @@ export class ChapterSearchRequest {
         updatedAt: Date | undefined;
         comic: Comic | undefined;
 }
+
+export class User{
+        id?:number;
+        userName?: string;
+        fullName?:string;
+        birthday?:string;
+        phoneNumber?:string;
+        role?:string;
+}
+
+export class TypeComic{
+        id?: number | undefined;
+        name: string | undefined;
+        description: string | undefined;
+}
+

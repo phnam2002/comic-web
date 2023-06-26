@@ -7,6 +7,10 @@ import { ChiTietChapComponent } from './page/WEB/chi-tiet-chap/chi-tiet-chap.com
 import { ChiTietTruyenComponent } from './page/WEB/chi-tiet-truyen/chi-tiet-truyen.component';
 import { LoginComponent } from './page/WEB/login/login.component';
 import { TrangChuComponent } from './page/WEB/trang-chu/trang-chu.component';
+import { TimTruyenComponent } from './page/WEB/tim-truyen/tim-truyen.component';
+import { TrangCaNhanComponent } from './page/WEB/trang-ca-nhan/trang-ca-nhan.component';
+import { ThongTinChungComponent } from './page/WEB/trang-ca-nhan/thong-tin-chung/thong-tin-chung.component';
+import { ThongTinCaNhanComponent } from './page/WEB/trang-ca-nhan/thong-tin-ca-nhan/thong-tin-ca-nhan.component';
 
 
 const routes: Routes = [
@@ -40,11 +44,33 @@ const routes: Routes = [
         title: 'Thêm truyện',
       },
       {
+        path: 'tim-truyen',
+        component: TimTruyenComponent,
+        title: 'Tìm truyện',
+      },
+      {
         path: 'them-chap/:id',
         component: QuanLyChuongComponent,
         title: 'Thêm chap',
       },
-
+      {
+        path: 'trang-ca-nhan',
+        component: TrangCaNhanComponent,
+        title: 'Trang cá nhân',
+        children:[
+          {
+            path: 'thong-tin-chung',
+            component: ThongTinChungComponent,
+            title:'Thông tin chung'
+          },
+          {
+            path: 'thong-tin-ca-nhan',
+            component: ThongTinCaNhanComponent,
+            title:'Thông tin cá nhân'
+          },
+          { path: "", pathMatch: 'full', redirectTo: 'thong-tin-chung' },
+        ]
+      },
       { path: "", pathMatch: 'full', redirectTo: 'trang-chu' },
     ]
       

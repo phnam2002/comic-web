@@ -1,0 +1,52 @@
+.background {
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+figure {
+    padding: 10px 10px 0px 10px;
+    margin: 0px;
+}
+
+img {
+    display: block;
+    width: 80px;
+    float: left;
+}
+
+figcaption {
+    display: table-cell;
+    padding: 15px 5px 15px 10px;
+}
+
+figure figcaption .title {
+    color: #fff;
+    opacity: .8;
+    font-weight: 300;
+}
+
+figure figcaption .user-name {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul li.active {
+    background: #e6e6e6;
+    border-left: 3px solid #ee2c74;
+}
+
+ul li.active>a {
+    font-weight: 700;
+}
+
+ul li .nav-link {
+    display: block;
+    color: #333;
+    padding: 9px 30px;
+}

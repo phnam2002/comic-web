@@ -11,6 +11,7 @@ import { ComicServicesService } from 'src/app/services/comic-services/comic-serv
   styleUrls: ['./chi-tiet-truyen.component.css']
 })
 export class ChiTietTruyenComponent implements OnInit{
+  currentUser:any;
   selectedFiles: File[] = [];
   comicDetail: Comic = new Comic();
   page: PagesRequest = new PagesRequest();
@@ -40,6 +41,10 @@ export class ChiTietTruyenComponent implements OnInit{
   ) {
   }
   ngOnInit(): void {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      this.currentUser = JSON.parse(currentUser);
+    }
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.getDetail(id);

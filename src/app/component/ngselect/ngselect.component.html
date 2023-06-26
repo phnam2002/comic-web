@@ -1,0 +1,26 @@
+<ng-select
+  [items]="items$ | async"
+  bindLabel="label"
+  [multiple]="multiple"
+  [trackByFn]="trackByFn"
+  [loading]="loading"
+  notFoundText="Không tìm thấy dữ liệu"
+  [typeahead]="input$"
+  [(ngModel)]="value"
+  [readonly]="readonly"
+  [bindValue]="bindValue"
+>
+
+  <!-- <ng-template ng-label-tmp let-item="item">
+      <img height="15" width="15" [src]="item.avatar"/>
+      <b>{{item.type}}</b>
+  </ng-template> -->
+  <ng-template ng-option-tmp let-item="item" let-index="index">
+    <a href="" [routerLink]="['chi-tiet-truyen', item.id]">
+        <!-- <img height="15" width="15" [src]="item.image"/> -->
+        <b>{{item.name}}</b>
+    </a>
+  </ng-template>
+</ng-select>
+
+<!-- {{value|json}} -->

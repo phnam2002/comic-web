@@ -1,37 +1,41 @@
 <ng-container>
     <div class="container background">
-        <div class="relative ">
             <div class="page-title body-down">
                 <h1>Truyện đề cử <i class="fa fa-angle-right"></i></h1>
             </div>
-            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-                <div ngxSlickItem *ngFor="let item of asyncData" class="slide relative">
-                    <div class="container " *ngIf="item.chapter != []">
-                        <img class="slide-img  " [src]="item.image | async" alt="">
-                        <div class="positioning slide-info">
-                            <h3>
-                                <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{ item.name
-                                    }} </a>
-                            </h3>
-                            <div class="row " *ngIf="item.chapter">
-                                <div class="col slide-chapter">
-                                    <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
-                                        {{item.chapter[0].chap}}</a>
+            <div class="items-slide">
+                <owl-carousel-o  [options]="customOptionsBanner">
+                    <ng-container *ngFor="let item of asyncData">
+                        <ng-template class="slide" carouselSlide [id]="item.id!.toString()">
+                            <div class="item">
+                            <a href="">
+                                <img class="slide-img img-center " [src]="item.image | async" alt="">
+                            </a>
+                            <div class="slide-info">
+                                    <h3> 
+                                        <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{
+                                            item.name
+                                            }} </a>
+                                    </h3>
+                                    <div class="row " *ngIf="item.chapter">
+                                        <div class="col slide-chapter">
+                                            <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
+                                                {{item.chapter[0].chap}}</a>
+                                        </div>
+                                        <div class="col time">
+                                            {{item.chapter[0].updatedAt | date:'dd/MM/yyyy'}}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col time">
-                                    {{item.chapter[0].updatedAt | date:'dd/MM/yyyy'}}
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </ngx-slick-carousel>
-            <button class="btn-next btn-hover" (click)="next()"><i class="fa-sharp fa-solid fa-caret-right fa-xl"
+                            </div> 
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+            <!-- <button class="btn-next btn-hover"><i class="fa-sharp fa-solid fa-caret-right fa-xl"
                     style="color: #000000;"></i></button>
-            <button class="btn-prev btn-hover" (click)="prev()"><i class="fa-solid fa-caret-left fa-xl"
-                    style="color: #000000;"></i></button>
-        </div>
+            <button class="btn-prev btn-hover"><i class="fa-solid fa-caret-left fa-xl"
+                    style="color: #000000;"></i></button> -->
 
         <div class="row body-down">
             <div class="col-sm-8">
@@ -42,7 +46,6 @@
                     </a>
                 </div>
                 <div class="container">
-                    <form [formGroup]="searchForm" (ngSubmit)="search(1)">
                         <div class="box">
                             <div class="grid-parent table-wrapper" *ngIf="asyncData">
                                 <ng-container *ngFor="
@@ -55,7 +58,7 @@
                                           totalItems: total
                                         };
                                    ">
-                                    <div id="container" class="col-lg-3 grid-children">
+                                    <div class="col-lg-3 grid-children">
                                         <div class="img-container">
                                             <div class="positioning img-info">
                                                 <i class="fa-sharp fa-solid fa-eye fa-xs " style="color: #ffffff;"></i>
@@ -83,9 +86,11 @@
                                                     <div class="col comic-chapter">
                                                         <ul class="comic-item">
                                                             <li class="chapter">
-                                                                <a href="" [routerLink]="['/chi-tiet-chap',item1.id]">Chapter {{ item1.chap
-                                                                }}</a>
-                                                                </li>
+                                                                <a href=""
+                                                                    [routerLink]="['/chi-tiet-chap',item1.id]">Chapter
+                                                                    {{ item1.chap
+                                                                    }}</a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                     <div class="col time-published">
@@ -106,7 +111,6 @@
                                 [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
                                 (pageChange)="search($event)"></pagination-controls>
                         </div>
-                    </form>
                 </div>
             </div>
             <div class="col-sm-4">

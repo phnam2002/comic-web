@@ -1,0 +1,165 @@
+<ng-container>
+    <div class="container background">
+        <!-- <div>
+            <ul class=" page-list">
+                <li>Trang chủ </li>
+                <li>Thể loại</li>
+                <li>Kingdom - Vương Giả Thiên Hạ</li>
+            </ul>
+        </div> -->
+        <div class="row">
+            <div class="col-sm-8 comic-filter">
+                <div *ngIf="type">
+                    <h1 class="text-center" style="color: #333;">
+                        Truyện thể loại <strong>{{type}}</strong>
+                    </h1>
+                    <div id="ctl00_mainContent_ctl00_divDescription" class="description">
+                        <div class="info">{{description}}
+                        </div>
+                    </div>
+                    <div class="status-radio">
+                        <ul id="ctl00_mainContent_ctl00_ulStatus" class="nav nav-tabs">
+                            <li class="" [class.active]="status == '-1'">
+                                <a class="ajaxlink" href="" [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort: sort, type: type, status : '-1',description:description}">Tất cả</a>
+                            </li>
+                            <li class="" [class.active]="status == '1'">
+                                <a class="ajaxlink" href="" [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort: sort, type: type, status : '1',description:description}">Hoàn thành</a>
+                            </li>
+                            <li class="" [class.active]="status == '0'">
+                                <a rel="nofollow" class="ajaxlink" href="" [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort: sort, type: type, status : '0',description:description}">Đang tiến hành</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="ctl00_mainContent_ctl00_divSort" class="sort-by row">
+                        <div class="col-sm-3 mrt5 mrb5">
+                            Sắp xếp theo:
+                        </div>
+                        <div class="col-sm-9 sort-option">
+                            <div class="hidden-xs">
+                                <a class="ajaxlink" [class.active]="sort == '0'" href="" [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'0', type: type, status : status,description:description}"> Ngày cập nhật</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '1'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'1', type: type, status : status,description:description}"> Truyện mới</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '2'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'2', type: type, status : status,description:description}"><i class="fa fa-eye"></i>
+                                    Top all</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '3'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'3', type: type, status : status,description:description}"><i class="fa fa-eye"></i>
+                                    Top tháng</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '4'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'4', type: type, status : status,description:description}"><i class="fa fa-eye"></i>
+                                    Top tuần</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '5'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'5', type: type, status : status,description:description}"><i class="fa fa-eye"></i>
+                                    Top ngày</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '6'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'6', type: type, status : status,description:description}"><i class="fa fa-heart"></i>
+                                    Theo dõi</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '7'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'7', type: type, status : status,description:description}"><i
+                                        class="fa fa-comment"></i> Bình
+                                    luận</a>
+
+                                <a rel="nofollow" class="ajaxlink" [class.active]="sort == '8'" href=""
+                                    [routerLink]="'/tim-truyen'"
+                                    [queryParams]="{sort:'8', type: type, status : status,description:description}"> <i class="fa fa-list"></i>
+                                    Số chapter</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box">
+                        <div class="grid-parent table-wrapper" *ngIf="asyncData">
+                            <ng-container *ngFor="
+                              let item of asyncData
+                                | paginate
+                                  : {
+                                      id: 'server',
+                                      itemsPerPage: page.size,
+                                      currentPage: page.curentPage,
+                                      totalItems: total
+                                    };
+                               ">
+                                <div class="col-lg-3 grid-children">
+                                    <div class="img-container">
+                                        <div class="positioning img-info">
+                                            <i class="fa-sharp fa-solid fa-eye fa-xs " style="color: #ffffff;"></i>
+                                            1300K
+                                            <i class="fa-solid fa-comment fa-xs" style="color: #ffffff;"></i>
+                                            1300K
+                                            <i class="fa-solid fa-heart fa-xs" style="color: #ffffff;"></i>
+                                            1300K
+                                        </div>
+                                        <img class="thumbnail-img" [src]="item.image | async" width="100%" />
+                                    </div>
+                                    <div id="info-comic">
+                                        <h3 class="act-hover">
+                                            <a class="title list-title hover-act" href=""
+                                                (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip()"
+                                                (mousemove)="
+                                                onMouseMove($event)"
+                                                [routerLink]="['/chi-tiet-truyen', item.id]">{{ item.name }}</a>
+                                            <app-modal class="tooltip" [class.show]="isTooltipVisible"
+                                                [style.top.px]="tooltipTop"
+                                                [style.left.px]="tooltipLeft"></app-modal>
+                                        </h3>
+                                        <div class="container" *ngIf="item.chapter">
+                                            <div class="row" *ngFor="let item1 of item.chapter">
+                                                <div class="col comic-chapter">
+                                                    <ul class="comic-item">
+                                                        <li class="chapter">
+                                                            <a href=""
+                                                                [routerLink]="['/chi-tiet-chap',item1.id]">Chapter
+                                                                {{ item1.chap
+                                                                }}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col time-published">
+                                                    <ul class="comic-item">
+                                                        <li class="time">{{ item1.updatedAt | date:'dd/MM/yyyy'
+                                                            }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <p class="chapter-info"></p>
+                                        <p class="chapter-info">{{ item.publishedAt | date:'dd-MM-yyyy HH:mm:ss' }}</p> -->
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <pagination-controls *ngIf="asyncData" id="server" [maxSize]="10" [autoHide]="false" [responsive]="true"
+                            [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+                            (pageChange)="search($event)"></pagination-controls>
+                    </div>
+            </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div>
+                    <app-top-comic-rcm></app-top-comic-rcm>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,61 @@
+<ng-container>
+    <div class="container background row">
+        <div class="col-lg-3">
+            <div class="d-flex flex-column flex-shrink-0" style="text-align: left;">
+                <div style="background-color: black;">
+                    <figure>
+                        <img alt="" [src]="image" class="avatar user-img">
+                        <figcaption>
+                            <div class="title">Tài khoản của</div>
+                            <div class="user-name">
+                                thuy2002th
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="background" style="background-color: #f9f9f9;">
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item active">
+                            <a href="#" class="nav-link " aria-current="page" [routerLink]="['thong-tin-chung']">
+                                <i class="fa fa-tachometer"></i> Thông tin chung
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark" [routerLink]="['thong-tin-ca-nhan']">
+                                <i class="fa fa-info-circle"></i> Thông tin tài khoản
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-book"></i> Truyện theo dõi
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-comments"></i> Bình luận
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-comment"></i> Thông báo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-lock"></i> Đổi mật khẩu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-sign-out"></i> Thoát
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9" style="text-align: left;">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</ng-container>

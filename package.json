@@ -20,10 +20,13 @@
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
     "@ng-select/ng-select": "^11.0.0",
+    "carousel": "^0.0.3",
     "firebase": "^9.22.2",
     "jquery": "^3.7.0",
+    "ngx-owl-carousel-o": "^16.0.0",
     "ngx-pagination": "^6.0.3",
     "ngx-slick-carousel": "^15.0.0",
+    "owl.carousel": "^2.3.4",
     "rxjs": "~7.8.0",
     "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
@@ -40,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.1.3"
+    "typescript": "~5.1.3",
+    "webpack": "^5.87.0"
   }
 }

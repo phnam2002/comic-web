@@ -117,7 +117,7 @@
                 <div class="align-left">
                     <h3 class="page-item"><i class="fa fa-list"></i> Danh sách chương
                     </h3>
-                    <a class="btn-chapter-add" [routerLink]="['them-chap', comicDetail.id]"><i class="fa fa-plus"></i> Thêm chương</a>
+                    <a class="btn-chapter-add" [routerLink]="['/them-chap', comicDetail.id]" *ngIf="currentUser"><i class="fa fa-plus"></i> Thêm chương</a>
 
                     <div class="row">
                         <div class="col-sm-6 no-wrap">Số chương</div>

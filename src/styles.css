@@ -1,22 +1,54 @@
+
 @import "~@ng-select/ng-select/themes/default.theme.css";
-
-html {
-
-  height: 100%;
-
-}
+/* @import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel.min.css";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default.min.css"; */
+/* @import "material-icons/iconfont/material-icons.css"; */
 
 body {
-
-  height: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
   font-family: Tahoma, sans-serif, Helvetica, Arial;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
+}
+
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+p {
+  margin: 0px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 20px;
+  color: #333;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+h3 {
+  word-wrap: break-word;
+  line-height: 20px;
+  color: #333;
+}
+
+.container {
+  padding: 0px;
+}
+
+ul li{
+  list-style: none;
 }
