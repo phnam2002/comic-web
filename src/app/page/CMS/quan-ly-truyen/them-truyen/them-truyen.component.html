@@ -1,0 +1,84 @@
+<div class="box mb-32">
+    <h2 style="font-weight: 700; font-size: 20px;color: #2980b9;">Quản lý truyện > Thêm mới</h2>
+    <div class="box-body">
+        <form [formGroup]="detailForm" (ngSubmit)="submit()">
+            <div class="box mb-32">
+                <div class="box-body">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="fax" class="label"> Mã</label>
+                            <input type="text" class="form-control" id="code" [(ngModel)]="comicDetail.code"
+                                maxlength="300" formControlName="code">
+                            <span *ngIf="isSubmit && detailForm.controls.code?.errors?.['required']"
+                                class="text-danger rq-input">Thông tin bắt buộc</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="fax" class="label"> Tên</label>
+                            <input type="text" class="form-control" id="name" [(ngModel)]="comicDetail.name"
+                                maxlength="300" formControlName="name">
+                            <span *ngIf="isSubmit && detailForm.controls.name?.errors?.['required']"
+                                class="text-danger rq-input">Thông tin bắt buộc</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="type" class="label"> Thể loại</label>
+                            <input type="text" class="form-control" id="type" [(ngModel)]="comicDetail.type"
+                                maxlength="300" formControlName="type">
+                            <span *ngIf="isSubmit && detailForm.controls.type?.errors?.['required']"
+                                class="text-danger rq-input">Thông tin bắt buộc</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="author" class="label"> Tác giả</label>
+                            <input type="text" class="form-control" id="author" [(ngModel)]="comicDetail.author"
+                                maxlength="300" formControlName="author">
+                            <span *ngIf="isSubmit && detailForm.controls.author?.errors?.['required']"
+                                class="text-danger rq-input">Thông tin bắt buộc</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="description" class="label"> Mô tả</label>
+                        <textarea type="text" class="form-control" id="description"
+                            [(ngModel)]="comicDetail.description" maxlength="300" formControlName="description">
+                        </textarea>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="publishedAt" class="label"> Ngày xuất bản</label>
+                            <input type="date" class="form-control" id="publishedAt"
+                                [(ngModel)]="comicDetail.publishedAt" maxlength="300" formControlName="publishedAt">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content" class="label">Ảnh đại diện</label>
+                            <br>
+                            <div class="my-image">
+                                <input type="file" class="form-control" id="imagePath" formControlName="imagePath"
+                                    (change)="onFileSelected($event)" />
+                                <label for="content">
+                                    <img [src]="image" alt="abc">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex-center gap-24 box-btn">
+                    <button appBackButton type="button" class="btn btn-cancel col-lg-2"
+                        [routerLink]="'/cms/quan-ly-truyen'">
+                        Quay lại
+                    </button>
+                    <button type="submit" class="btn btn-allow col-lg-2">
+                        Lưu
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

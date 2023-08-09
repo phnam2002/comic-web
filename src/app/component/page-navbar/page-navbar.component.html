@@ -11,7 +11,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">HOT</a>
+          <a class="nav-link" aria-current="page" href="#" [routerLink]="['hot']">HOT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">THEO DÕI</a>
@@ -29,7 +29,7 @@
                 <li *ngFor="let item of list" style="width: 25%;">
                   <a class="dropdown-item" [class.highlight]='item.index == 0' [class.active]="item.name == nameSelected" href="#"
                     (mouseout)="description = ''" (mouseover)="description = item.description"
-                    [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type: item.name , status:'-1',description: item.description}"
+                    [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type: item.name , status:'-1'}"
                     (click)="nameSelected = item.name">{{item.name}}</a>
                 </li>
               </ul>
@@ -49,20 +49,20 @@
           </a>
           <ul class="dropdown-menu list-ul1">
             <li>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '2', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top All</a>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '3', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top tháng</a>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '4', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top tuần</a>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '5', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top ngày</a>
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '2', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top All</a>
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '3', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top tháng</a>
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '4', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top tuần</a>
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '5', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-eye" style="color: #000000;"></i> Top ngày</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#" style="color: #ff0000;" [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type:'Tất cả' , status:'1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-sharp fa-solid fa-chart-simple"
+              <a class="dropdown-item" href="#" style="color: #ff0000;" [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type:'Tất cả' , status:'1'}"><i class="fa-sharp fa-solid fa-chart-simple"
                   style="color: #ff0000;"></i><b> Truyện full</b></a>
 
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '6', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-regular fa-thumbs-up" style="color: #000000;"></i> Yêu
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '6', type:'Tất cả' , status:'-1'}"><i class="fa-regular fa-thumbs-up" style="color: #000000;"></i> Yêu
                 thích</a>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-rotate" style="color: #000000;"></i> Mới cập
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '0', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-rotate" style="color: #000000;"></i> Mới cập
                 nhật</a>
-              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '1', type:'Tất cả' , status:'-1',description: 'Tất cả thể loại truyện tranh'}"><i class="fa-solid fa-cloud-arrow-up" style="color: #000000;"></i>
+              <a class="dropdown-item" href="#" [routerLink]="['tim-truyen']" [queryParams]="{sort: '1', type:'Tất cả' , status:'-1'}"><i class="fa-solid fa-cloud-arrow-up" style="color: #000000;"></i>
                 Truyện mới</a>
             </li>
           </ul>
@@ -81,7 +81,7 @@
     <div class="box mb-32">
       <div class="row">
         <div class="col-12 d-flex justify-content-start">
-          <a routerLink="them-truyen" class="nav-link" *ngIf="currentUser">THÊM TRUYỆN</a>
+          <a routerLink="cms" class="nav-link" *ngIf="currentUser && currentUser.role == '1'">CMS</a>
         </div>
       </div>
     </div>

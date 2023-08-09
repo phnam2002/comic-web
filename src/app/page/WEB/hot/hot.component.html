@@ -1,0 +1,133 @@
+<ng-container>
+    <div class="container background">
+            <div class="page-title body-down">
+                <h1>Truyện đề cử <i class="fa fa-angle-right"></i></h1>
+            </div>
+            <div class="items-slide">
+                <owl-carousel-o  [options]="customOptionsBanner">
+                    <ng-container *ngFor="let item of asyncData">
+                        <ng-template class="slide" carouselSlide [id]="item.id!.toString()">
+                            <div class="item">
+                            <a href="">
+                                <img class="slide-img img-center " [src]="item.image | async" alt="">
+                            </a>
+                            <div class="slide-info">
+                                    <h3> 
+                                        <a class="title slide-title" [routerLink]="['/chi-tiet-truyen', item.id]">{{
+                                            item.name
+                                            }} </a>
+                                    </h3>
+                                    <div class="row " *ngIf="item.chapter">
+                                        <div class="col slide-chapter">
+                                            <a href="" [routerLink]="['/chi-tiet-chap',item.chapter[0].id]">Chapter
+                                                {{item.chapter[0].chap}}</a>
+                                        </div>
+                                        <div class="col time">
+                                            {{item.chapter[0].updatedAt | date:'dd/MM/yyyy'}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+            <!-- <button class="btn-next btn-hover"><i class="fa-sharp fa-solid fa-caret-right fa-xl"
+                    style="color: #000000;"></i></button>
+            <button class="btn-prev btn-hover"><i class="fa-solid fa-caret-left fa-xl"
+                    style="color: #000000;"></i></button> -->
+
+        <div class="row body-down">
+            <div class="col-sm-8">
+                <div class="page-title">
+                    <h1>Truyện mới cập nhật <i class="fa fa-angle-right"></i></h1>
+                    <a class="filter-icon" title="Tìm truyện nâng cao" href="/tim-truyen-nang-cao">
+                        <i class="fa fa-filter fa-sm"></i>
+                    </a>
+                </div>
+                <div class="container">
+                        <div class="box">
+                            <div class="grid-parent table-wrapper" *ngIf="asyncData">
+                                <ng-container *ngFor="
+                                  let item of asyncData
+                                    | paginate
+                                      : {
+                                          id: 'server',
+                                          itemsPerPage: page.size,
+                                          currentPage: page.curentPage,
+                                          totalItems: total
+                                        };
+                                   ">
+                                    <div class="col-lg-3 grid-children">
+                                        <div class="img-container">
+                                            <div class="positioning img-info">
+                                                <i class="fa-sharp fa-solid fa-eye fa-xs " style="color: #ffffff;"></i>
+                                                1300K
+                                                <i class="fa-solid fa-comment fa-xs" style="color: #ffffff;"></i>
+                                                1300K
+                                                <i class="fa-solid fa-heart fa-xs" style="color: #ffffff;"></i>
+                                                1300K
+                                            </div>
+                                            <img class="thumbnail-img" [src]="item.image | async" width="100%" />
+                                        </div>
+                                        <div id="info-comic">
+                                            <h3 class="act-hover">
+                                                <a class="title list-title hover-act" href=""
+                                                    (mouseenter)="showTooltip($event)" (mouseleave)="hideTooltip()"
+                                                    (mousemove)="
+                                                    onMouseMove($event)"
+                                                    [routerLink]="['/chi-tiet-truyen', item.id]">{{ item.name }}</a>
+                                                <app-modal class="tooltip" [class.show]="isTooltipVisible"
+                                                    [style.top.px]="tooltipTop"
+                                                    [style.left.px]="tooltipLeft"></app-modal>
+                                            </h3>
+                                            <div class="container" *ngIf="item.chapter">
+                                                <div class="row" *ngFor="let item1 of item.chapter">
+                                                    <div class="col comic-chapter">
+                                                        <ul class="comic-item">
+                                                            <li class="chapter">
+                                                                <a href=""
+                                                                    [routerLink]="['/chi-tiet-chap',item1.id]">Chapter
+                                                                    {{ item1.chap
+                                                                    }}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col time-published">
+                                                        <ul class="comic-item">
+                                                            <li class="time">{{ item1.updatedAt | date:'dd/MM/yyyy'
+                                                                }}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <p class="chapter-info"></p>
+                                            <p class="chapter-info">{{ item.publishedAt | date:'dd-MM-yyyy HH:mm:ss' }}</p> -->
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <pagination-controls id="server" [maxSize]="10" [autoHide]="false" [responsive]="true"
+                                [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+                                (pageChange)="search($event)"></pagination-controls>
+                        </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div *ngIf="followedComic; else elseBlock" class="admin-job">
+                    <div class="page-title">
+                        <h2>Truyện đang theo dõi</h2>
+                    </div>
+                </div>
+                <ng-template #elseBlock>
+                </ng-template>
+
+                <div class="admin-job">
+                    <app-top-comic-rcm></app-top-comic-rcm>
+                </div>
+                <!-- <div class="admin-job">abc</div>
+                <div class="admin-job">abc</div> -->
+            </div>
+        </div>
+    </div>
+</ng-container>

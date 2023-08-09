@@ -1,0 +1,43 @@
+<ng-container>
+        <div class="d-flex flex-column flex-shrink-0" style="text-align: left;height: 100%;">
+            <div class="background" style="background-color: #f9f9f9;">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item " [class.active]="action == 'user'">
+                        <a (click)="userPage()" href="#" class="nav-link " aria-current="page" [routerLink]="['/cms/quan-ly-nguoi-dung']">
+                            <i class="fa fa-tachometer"></i> Quản lý người dùng
+                        </a>
+                    </li>
+                    <li [class.active]="action == 'comic'">
+                        <a (click)="comicPage()" href="#" class="nav-link link-dark" [routerLink]="['/cms/quan-ly-truyen']">
+                            <i class="fa fa-info-circle"></i> Quản lý truyện
+                        </a>
+                    </li>
+                    <li [class.active]="action == 'chap'">
+                        <a (click)="chapPage()" href="#" class="nav-link link-dark" [routerLink]="['/cms/quan-ly-chuong']">
+                            <i class="fa fa-info-circle"></i> Quản lý chương
+                        </a>
+                    </li>
+                    <li>
+                        <!-- <a *ngIf="userDetail.role == '1'"  class="nav-link link-dark" [routerLink]="['quan-ly-nguoi-dung']">
+                                <i class="fa fa-person"></i> Quản lý người dùng
+                            </a> -->
+                    </li>
+                    <li>
+                        <!-- <a href="#" class="nav-link link-dark" *ngIf="userDetail.role == '1'">
+                                <i class="fa fa-book"></i> Quản lý truyện
+                            </a> -->
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <i class="fa fa-lock"></i> Đổi mật khẩu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                            <i class="fa fa-sign-out"></i> Thoát
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</ng-container>

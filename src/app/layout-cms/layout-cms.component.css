@@ -1,0 +1,28 @@
+.content-wrapper {
+    background-color: #e4e4e4;
+}
+
+.container {
+    flex: 1 0 auto;
+    text-align: center;
+}
+
+
+.footer {
+    color: #fff;
+    flex-shrink: 0;
+
+}
+
+#relative {
+    position: relative;
+    z-index: 99;
+}
+
+.sticky {
+    height: 40px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}

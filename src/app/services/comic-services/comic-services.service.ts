@@ -42,7 +42,7 @@ export class ComicServicesService {
     
     if(page.sort) params = params.set('sort', page.sort);
     if (page.curentPage) params = params.set('page', page.curentPage - 1);
-    if (page.size) params = params.set('size', page.size);
+    if (page.size) params = params.set('size', 10);
 
     if (comic.name) params = params.set('name', comic.name);
     if (comic.status) params = params.set('status', comic.status);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/model/model';
 import { UserServicesService } from 'src/app/services/user-services/user-services.service';
 
@@ -16,11 +16,12 @@ export class ThongTinCaNhanComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     public formBuilder: FormBuilder,
-    private userService : UserServicesService
+    private userService : UserServicesService,
+    private router: Router,
   ){}
 
   detailForm = this.formBuilder.group({
-    userName: new FormControl(),
+    username: new FormControl(),
     fullName: new FormControl(),
     birthday: new FormControl(),
     phoneNumber: new FormControl(),
@@ -37,12 +38,21 @@ export class ThongTinCaNhanComponent implements OnInit{
 
   getDetail(id : any){
     this.userService.getDetail(id).subscribe((item) => {
-      this.userDetail = item;
+      if(item.data)
+      this.userDetail = item.data;
       console.log(this.userDetail);
     })
   }
 
-  create(){
-    console.log(this.userDetail);
+  update(){
+    this.userService.update(this.userDetail).subscribe((res) =>{
+      if (res.data)
+      this.userDetail = res.data;
+    })
+    this.goBack();
+  }
+
+  goBack(){
+    this.router.navigate(['trang-ca-nhan/thong-tin-chung']);
   }
 }

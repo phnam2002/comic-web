@@ -6,7 +6,7 @@
         <div class="col-lg-6">
             <div class="account-info">
                 <h2>Thông tin tài khoản</h2>
-                <a href="" class="link">Chỉnh sửa <i class="fa fa-chevron-right"></i></a>
+                <a href="" class="link" [routerLink]="'/trang-ca-nhan/thong-tin-ca-nhan'">Chỉnh sửa <i class="fa fa-chevron-right"></i></a>
                 <div class="info-detail">
                     <div class="group">
                         <div class="label">Họ và tên</div>
@@ -15,9 +15,9 @@
                         </div>
                     </div>
                     <div class="group">
-                        <div class="label">Số điện thoại</div>
+                        <div class="label">Email</div>
                         <div class="detail">
-                          {{userDetail.phoneNumber}}
+                          {{userDetail.gmail}}
                         </div>
                     </div>
                     <div class="group">
@@ -27,9 +27,9 @@
                         </div>
                     </div>
                     <div class="group">
-                        <div class="label">Ngày sinh</div>
+                        <div class="label">Cấp bậc</div>
                         <div class="detail">
-                          {{userDetail.birthday}}
+                          {{userDetail.role}}
                         </div>
                     </div>
                 </div>
