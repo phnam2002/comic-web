@@ -19,7 +19,15 @@ body {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #288ad6;
+}
+
+a:hover{
+  color: #ae4ad9;
+}
+
+.active{
+  color: #ae4ad9;
 }
 
 
@@ -52,3 +60,35 @@ h3 {
 ul li{
   list-style: none;
 }
+
+.owl-carousel{
+  position: relative;
+}
+
+.owl-theme .owl-nav [class*=owl-] {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 39px;
+  border-radius: 3px;
+  position: absolute;
+}
+
+.owl-carousel .owl-nav .owl-prev {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 30px;
+}
+
+.owl-carousel .owl-nav .owl-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 30px;
+}
+
+.mgbt{
+  margin-bottom: 10px;
+}
+

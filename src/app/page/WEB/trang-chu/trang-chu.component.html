@@ -60,14 +60,6 @@
                                    ">
                                     <div class="col-lg-3 grid-children">
                                         <div class="img-container">
-                                            <div class="positioning img-info">
-                                                <i class="fa-sharp fa-solid fa-eye fa-xs " style="color: #ffffff;"></i>
-                                                1300K
-                                                <i class="fa-solid fa-comment fa-xs" style="color: #ffffff;"></i>
-                                                1300K
-                                                <i class="fa-solid fa-heart fa-xs" style="color: #ffffff;"></i>
-                                                1300K
-                                            </div>
                                             <img class="thumbnail-img" [src]="item.image | async" width="100%" />
                                         </div>
                                         <div id="info-comic">
@@ -77,9 +69,6 @@
                                                     (mousemove)="
                                                     onMouseMove($event)"
                                                     [routerLink]="['/chi-tiet-truyen', item.id]">{{ item.name }}</a>
-                                                <app-modal class="tooltip" [class.show]="isTooltipVisible"
-                                                    [style.top.px]="tooltipTop"
-                                                    [style.left.px]="tooltipLeft"></app-modal>
                                             </h3>
                                             <div class="container" *ngIf="item.chapter">
                                                 <div class="row" *ngFor="let item1 of item.chapter">
@@ -120,12 +109,6 @@
                     </div>
                 </div>
                 <ng-template #elseBlock>
-                    <div class="admin-job">
-                        <div class="page-title">
-                            <h2>Truyện đang theo dõi</h2>
-                            Chưa có truyện theo dõi
-                        </div>
-                    </div>
                 </ng-template>
 
                 <div class="admin-job">

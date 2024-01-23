@@ -1,57 +1,116 @@
-<div class="login">
-    <div class="login-form">
-      <header class="login-header">
-        <!-- <img src="assets/images/logo.webp" alt="" class="login-form__logo" /> -->
-        <div class="login-header__title">Đăng nhập</div>
-      </header>
-  
-      <div class="login-content from-section form-vertical">
-        <form class="w-100" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="form-group mb-20 text-align-left">
-            <label for="username" class="label mb-6">Tên đăng nhập</label>
-            <input
-              type="text"
-              class="form-control form__input"
-              id="username"
-              aria-describedby="username"
-              placeholder="Nhập tên đăng nhập"
-              [(ngModel)]="loginRequest.username"
-              name="username"
-              formControlName="username"
-            />
-            <span
-              *ngIf="isSubmit && loginForm.controls.username?.errors?.['required']"
-              class="text-danger rq-input"
-              >Thông tin bắt buộc</span
-            >
-          </div>
-          <div class="form-group mb-20">
-            <label for="password" class="label mb-6">Mật khẩu</label>
-            <input
-              type="password"
-              class="form-control form__input"
-              id="password"
-              placeholder="Nhập mật khẩu"
-              [(ngModel)]="loginRequest.password"
-              name="password"
-              formControlName="password"
-            />
-            <span
-              *ngIf="isSubmit && loginForm.controls.password?.errors?.['required']"
-              class="text-danger rq-input"
-              >Thông tin bắt buộc</span
-            >
-          </div>
-          <div class="d-flex mb-5 align-items-center">
-            <span class="ml-auto"
-              ><a href="#" class="forgot-pass">Quên mật khẩu</a></span
-            >
-          </div>
-          <button type="submit" class="btn form-btn__submit w-100 mb-24">
-            Đăng nhập
-          </button>
-        </form>
+<div class="login" *ngIf="action == '0'">
+  <div class="login-form">
+    <header class="login-header">
+      <!-- <img src="assets/images/logo.webp" alt="" class="login-form__logo" /> -->
+      <div class="login-header__title">Đăng nhập</div>
+    </header>
+
+    <div class="login-content from-section form-vertical">
+      <form class="w-100" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-20 text-align-left">
+          <label for="username" class="label mb-6">Tên đăng nhập</label>
+          <input type="text" class="form-control form__input" id="username" aria-describedby="username"
+            placeholder="Nhập tên đăng nhập" [(ngModel)]="loginRequest.username" name="username"
+            formControlName="username" />
+          <span *ngIf="isSubmit && loginForm.controls.username?.errors?.['required']" class="text-danger rq-input">Thông
+            tin bắt buộc</span>
+        </div>
+        <div class="form-group mb-20">
+          <label for="password" class="label mb-6">Mật khẩu</label>
+          <input type="password" class="form-control form__input" id="password" placeholder="Nhập mật khẩu"
+            [(ngModel)]="loginRequest.password" name="password" formControlName="password" />
+          <span *ngIf="isSubmit && loginForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông
+            tin bắt buộc</span>
+        </div>
+        <div class="d-flex mb-5 align-items-center">
+          <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu</a></span>
+        </div>
+        <button type="submit" class="btn form-btn__submit w-100 mb-24">
+          Đăng nhập
+        </button>
+      </form>
+      <div class="text-back">
+        <span>
+          Bạn chưa có tài khoản ?
+        </span><a href="#" [routerLink]="['/login']" [queryParams]="{action: '1'}">Đăng ký</a>
       </div>
     </div>
   </div>
-  
+</div>
+
+<div class="login" *ngIf="action == '1'">
+  <div class="login-form">
+    <header class="login-header" style="margin-top: 20px;">
+      <!-- <img src="assets/images/logo.webp" alt="" class="login-form__logo" /> -->
+      <div class="login-header__title">Đăng ký</div>
+    </header>
+
+    <div class="login-content from-section form-vertical">
+      <form class="w-100" [formGroup]="registerForm" (ngSubmit)="submit()">
+        <div class="box-body">
+          <div class="row ">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="username" class="label"> Tên đăng nhập</label>
+                <input type="text" class="form-control" id="username" [(ngModel)]="userDetail.username" [disabled]=true placeholder="Nhập tên đăng nhập" autocomplete="off"
+                  maxlength="20" formControlName="username" [value]="this.userDetail.username">
+              </div>
+              <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+            </div>
+
+            <div class="form-group mb-20">
+              <label for="password" class="label mb-6">Mật khẩu</label>
+              <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu"
+                [(ngModel)]="userDetail.password" name="password" formControlName="password"  autocomplete="off"/>
+              <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="gmail" class="label"> Email</label>
+                <input type="text" class="form-control" id="gmail" [(ngModel)]="userDetail.gmail" [disabled]=true placeholder="Nhập Email"
+                  maxlength="300" formControlName="gmail" [value]="this.userDetail.gmail">
+              </div>
+              <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="fullName" class="label"> Tên đầy đủ</label>
+                <input type="text" class="form-control" id="fullName" [(ngModel)]="userDetail.fullName" maxlength="300" placeholder="Nhập tên đầy đủ"
+                  formControlName="fullName">
+                  <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="birthday" class="label"> Ngày sinh</label>
+                <input type="text" class="form-control" id="birthday" [(ngModel)]="userDetail.birthday" maxlength="20" placeholder="Nhập ngày sinh"
+                  formControlName="birthday">
+                  <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label for="phoneNumber" class="label"> Số điện thoại</label>
+                <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="userDetail.phoneNumber" placeholder="Nhập số điện thoại"
+                  maxlength="300" formControlName="phoneNumber">
+                  <span *ngIf="isSubmit && registerForm.controls.password?.errors?.['required']" class="text-danger rq-input">Thông tin bắt buộc</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn form-btn__submit w-100 mb-24">
+          Đăng ký
+        </button>
+      </form>
+      <div class="text-back">
+        <span>
+          Bạn đã có tài khoản ?
+        </span><a href="#" [routerLink]="['/login']" [queryParams]="{action: '0'}">Đăng nhập</a>
+      </div>
+    </div>
+  </div>
+</div>

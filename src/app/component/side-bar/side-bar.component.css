@@ -1,0 +1,15 @@
+
+ul li.active {
+    background: #2980b9;
+    /* border-left: 3px solid #ee2c74; */
+}
+
+ul li.active>a {
+    font-weight: 700;
+}
+
+ul li .nav-link {
+    display: block;
+    color: #333;
+    padding: 9px 30px;
+}

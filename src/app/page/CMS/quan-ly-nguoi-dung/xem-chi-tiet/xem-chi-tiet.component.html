@@ -1,0 +1,59 @@
+<div class="box mb-32">
+    <h2 style="font-weight: 700; font-size: 20px;color: #2980b9;">Quản lý người dùng > Xem chi tiết</h2>
+    <div class="box-body">
+        <form [formGroup]="detailForm">
+            <div class="box mb-32">
+                <div class="box-body">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="username" class="label"> Tên đăng nhập </label>
+                                <input type="text" class="form-control" id="username" [(ngModel)]="userDetail.username"
+                                    [readonly]="true" formControlName="username" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="value" class="label"> Tên đầy đủ </label>
+                                <input type="text" class="form-control" id="fullName" [(ngModel)]="userDetail.fullName" [readonly]="true"
+                                    formControlName="fullName" />
+                                <!-- <span *ngIf="detailForm.controls.value?.errors?.['required']"
+                                    class="text-danger rq-input">Thông tin bắt buộc</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="phoneNumber" class="label"> Số điện thoại </label>
+                            <input type="text" class="form-control" id="phoneNumber" [readonly]="true"
+                                [(ngModel)]="userDetail.phoneNumber" formControlName="phoneNumber" />
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="birthday" class="label"> Ngày sinh </label>
+                                <input type="text" class="form-control" id="birthday" [(ngModel)]="userDetail.birthday" [readonly]="true"
+                                    formControlName="birthday" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="role" class="label"> Cấp bậc </label>
+                                <select name="country" class="form-control" [(ngModel)]="userDetail.role" 
+                                    formControlName="role">
+                                    <option value="0" disabled="true">Bạn đọc</option>
+                                    <option value="1"disabled="true">Quản trị</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row flex-center gap-24 box-btn">
+                <button appBackButton type="button" class="btn btn-cancel col-lg-2" [routerLink]="'/cms/quan-ly-nguoi-dung'">
+                    Quay lại
+                </button>
+                <button type="link" class="btn btn-allow col-lg-2" [routerLink]="['/cms/quan-ly-nguoi-dung/sua', userDetail.id]">
+                    Sửa
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

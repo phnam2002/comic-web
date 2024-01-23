@@ -1,4 +1,6 @@
+import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef } from '@angular/core';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -6,7 +8,8 @@ import { Component, ElementRef } from '@angular/core';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent {
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef,
+    @Inject(DOCUMENT) private document: Document) { }
 
   header: any ;
   sticky: number | undefined;
@@ -14,6 +17,15 @@ export class LayoutComponent {
   ngAfterViewInit() {
     this.header = document.getElementById('fixed');
     this.sticky = this.header.offsetTop;
+  }
+
+  scrollToTop(): void {
+    // scroll to the top of the body
+    return this.document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'start'
+    });
   }
 
   // @HostListener('window:scroll', [])
@@ -28,3 +40,4 @@ export class LayoutComponent {
   //   }
   // }
 }
+
