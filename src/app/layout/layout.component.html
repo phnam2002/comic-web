@@ -1,23 +1,19 @@
 <div class="navbar-top" HostListener>
-  <!-- Main navbar -->
-  <app-page-header #header id="relative"></app-page-header>
-  <app-page-navbar #miniheader id="fixed"></app-page-navbar>
-  <!-- /main navbar -->
-
-  <!-- Page content -->
-  <div class="page-content">
-    <!-- Main content -->
-    <div class="content-wrapper">
-      <div class="container main">
-        <!-- <app-ng-dynamic-breadcrumb></app-ng-dynamic-breadcrumb> -->
-        <router-outlet></router-outlet>
-        <div class="to-top" id="back-to-top" (click)="scrollToTop()">
-          <i class="fa-solid fa-chevron-up" style="font-size: 20px;margin-top: 10px;"></i>
-          </div>
+    <!-- Main navbar -->
+    <app-page-header #header id="relative" ></app-page-header>
+    <app-page-navbar #miniheader id="fixed" ></app-page-navbar>
+    <!-- /main navbar -->
+  
+    <!-- Page content -->
+    <div class="page-content">
+      <!-- Main content -->
+      <div class="content-wrapper">
+        <div class="container main">
+            <router-outlet></router-outlet>
+        </div>
+        <app-page-footer class="footer"></app-page-footer>
       </div>
-      <app-page-footer class="footer"></app-page-footer>
+      <!-- /main content -->
     </div>
-    <!-- /main content -->
+    <!-- /page content -->
   </div>
-  <!-- /page content -->
-</div>

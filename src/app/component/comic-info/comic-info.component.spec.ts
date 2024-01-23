@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LayoutCmsComponent } from './layout-cms.component';
+import { ComicInfoComponent } from './comic-info.component';
 
-describe('LayoutCmsComponent', () => {
-  let component: LayoutCmsComponent;
-  let fixture: ComponentFixture<LayoutCmsComponent>;
+describe('ComicInfoComponent', () => {
+  let component: ComicInfoComponent;
+  let fixture: ComponentFixture<ComicInfoComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LayoutCmsComponent]
+      declarations: [ComicInfoComponent]
     });
-    fixture = TestBed.createComponent(LayoutCmsComponent);
+    fixture = TestBed.createComponent(ComicInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

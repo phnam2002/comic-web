@@ -8,7 +8,7 @@
                         <figcaption>
                             <div class="title">Tài khoản của</div>
                             <div class="user-name">
-                                {{userDetail.username}}
+                                thuy2002th
                             </div>
                         </figcaption>
                     </figure>
@@ -27,22 +27,17 @@
                         </li>
                         <li>
                             <a href="#" class="nav-link link-dark">
+                                <i class="fa fa-book"></i> Truyện theo dõi
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link link-dark">
                                 <i class="fa fa-comments"></i> Bình luận
                             </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link link-dark">
                                 <i class="fa fa-comment"></i> Thông báo
-                            </a>
-                        </li>
-                        <li>
-                            <a *ngIf="userDetail.role == '1'"  class="nav-link link-dark" [routerLink]="['quan-ly-nguoi-dung']">
-                                <i class="fa fa-person"></i> Quản lý người dùng
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link link-dark" *ngIf="userDetail.role == '1'">
-                                <i class="fa fa-book"></i> Quản lý truyện
                             </a>
                         </li>
                         <li>

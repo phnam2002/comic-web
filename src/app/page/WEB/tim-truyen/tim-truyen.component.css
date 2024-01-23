@@ -321,18 +321,3 @@ button:hover {
     display: block;
 }
 
-.type-box{
-    border: 1px solid #ddd;
-    color: #333;
-    padding: 10px;
-    clear: right;
-    margin-bottom: 15px;
-}
-
-.type-list{
-    margin: 0;
-    padding: 10px 5px;
-    border-top: 1px solid #dedede;
-    text-align: left;
-}
-

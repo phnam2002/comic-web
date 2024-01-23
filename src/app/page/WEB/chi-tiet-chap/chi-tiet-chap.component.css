@@ -78,12 +78,6 @@ a {
     text-decoration: none;
 }
 
-
-button {
-    margin-right: 5px;
-    /* text-decoration: none; */
-}
-
 .btn-success {
     color: #fff;
     background-color: #5cb85c;
@@ -102,14 +96,12 @@ button {
     border-color: #eea236;
 }
 
-.reading-control{
-    overflow:visible;
-}
-
 .chapter-nav {
     z-index: auto;
-    /* position: static; */
+    position: static;
     top: auto;
+    white-space: nowrap;
+    overflow: hidden;
     height: 42px;
 }
 
@@ -143,20 +135,22 @@ button {
     text-align: center;
     border-color: #d43f3a;
     height: 34px;
+    padding-top: 7px;
     border-radius: 4px 0 0 4px;
 }
 
 .select-chapter {
-    vertical-align: middle;
     display: inline-block;
     padding: 0;
-    /* height: 34px; */
+    height: 34px;
     border: 1px solid #ccc;
     width: 25%;
     background-color: #fff;
     border-radius: 0;
-    z-index: 1000;
 }
+
+
+
 
 .next {
     margin-left: 5px;
@@ -168,16 +162,9 @@ button {
     text-align: center;
     border-color: #d43f3a;
     height: 34px;
+    padding-top: 7px;
 }
 
 .chapter-nav-bottom {
     margin-top: 5px;
 }
-
-.disable{
-    background: gray;
-}
-
-:host ::ng-deep .content-wrapper {
-    background-color: #000;
-  }

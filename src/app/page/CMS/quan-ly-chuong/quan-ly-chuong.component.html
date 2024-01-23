@@ -1,135 +1,57 @@
 <ng-container>
-    <div class="box mb-32">
-      <h2 style="font-weight: 700; font-size: 20px;color: #2980b9;">Quản lý chương</h2>
-      <div class="box-body">
-        <form [formGroup]="searchForm" (ngSubmit)="search(1)" class="pd10">
-          <div class="row align-items-center">
-            <!-- <div class="col-lg-6">
-                <div class="form-group">
-                  <label class="label"> Mã truyện </label>
-                  <input type="text" class="form-control" id="code" placeholder="Nhập mã truyện"
-                    [(ngModel)]="chapterSearch.code" formControlName="code" />
-                </div>
-              </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label class="label"> Tên truyện </label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên truyện"
-                  [(ngModel)]="chapterSearch.name" formControlName="name" />
-              </div>
-            </div>
+    <div class="container">
+        <form [formGroup]="detailForm" (ngSubmit)="create()">
+            <div class="box mb-32">
+                <div class="box-body">
+                    <div class="row ">
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="chap" class="label"> Chương</label>
+                                <input type="number" class="form-control" id="chap" [(ngModel)]="chapterDetail.chap"
+                                    maxlength="300" formControlName="chapNumber" [value]="this.chapterDetail.chap">
+                            </div>
+                        </div>
 
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label class="label"> Tên đầy đủ </label>
-                <input type="text" class="form-control" id="fullName" placeholder="Nhập tên đầy đủ"
-                  [(ngModel)]="userSearch.fullName" formControlName="fullName" />
-              </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="form-group">
-                  <label class="label"> Trạng thái </label>
-                  <select name="type" class="form-control" [(ngModel)]="comicSearch.status" formControlName="type">
-                    <option value="-1" selected>Tất cả</option>
-                    <option value="0">Chưa hoàn thành</option>
-                    <option value="1">Đã hoàn thành</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-6"> -->
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="fax" class="label"> Tiêu đề chương</label>
+                                <input type="text" class="form-control" id="title" [(ngModel)]="chapterDetail.title"
+                                    maxlength="300" formControlName="title">
+                            </div>
+                        </div>
+                    </div>
 
-              <!-- </div> -->
-            <div class="col-lg-6">
-              <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-              </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="my-image">
+                                <input type="file" class="form-control" id="imagePath" 
+                                    (change)="onFileSelected($event)" multiple/>
+                                <!-- <label for="content">
+                                    <img [src]="image" alt="abc">
+                                </label> -->
+                                <label for="content" class="label">Nội dung chap</label>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="this.urls.length > 0">
+                        <ng-container *ngFor="let url of urls ; let i = index">
+                            <div >
+                                <span>
+                                    Trang {{i + 1}}
+                                </span>
+                                <img [src]="url | async" alt="">
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 d-flex justify-content-start">
+                        <button type="submit" class="btn btn-allow">Lưu</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </form>
-      </div>
     </div>
-    <div class="box">
-      <div class="table-wrapper pd10">
-        <div class="d-flex justify-content-end">
-          <button type="submit" class="btn btn-primary" style="margin-top: 10px;" [routerLink]="['./them-moi']">Thêm
-            mới</button>
-        </div>
-        <table class="table">
-          <thead>
-            <th class="stt">STT</th>
-            <th>Tiêu đề</th>
-            <th>Chap</th>
-            <th>Tên truyện</th>
-            <!-- <th>Tác giả</th>
-            <th>Mô tả</th>
-            <th>Ngày xuất bản</th>
-            <th>Trạng thái</th>
-            <th>Lượt xem</th>
-            <th>Lượt theo dõi</th> -->
-            <th class="fix fix-right">
-              <div class="fixed-column" style="padding-bottom: 0px;">Thao tác</div>
-            </th>
-          </thead>
-          <tbody *ngIf="asyncData">
-            <tr *ngFor="
-                  let item of asyncData
-                    | paginate
-                      : {
-                          id: 'server',
-                          itemsPerPage: page.size,
-                          currentPage: page.curentPage,
-                          totalItems: total
-                        };
-                  let i = index
-                ">
-              <td class="stt">{{ getCurrentPageNumber(i + 1) }}</td>
-              <td>{{ item.title }}</td>
-              <td>{{ item.chap }}</td>
-              <td>{{ item.comic?.name}}</td>
-              <td class="fix fix-right">
-                <div class="fixed-column">
-                  <a class="fixed-icon flex-center" [routerLink]="['./xem', item.id]">
-                    <span class="material-symbols-outlined"> <i class="fa-solid fa-eye"></i></span>
-                  </a>
-                  <a class="fixed-icon flex-center" [routerLink]="['./sua', item.id]">
-                    <span class="material-symbols-outlined"> <i class="fa-solid fa-pencil"></i> </span>
-                  </a>
-                  <a type="checkbox" class="fixed-icon flex-center" (click)="getIdItem(item.id)" data-bs-toggle="modal"
-                    data-bs-target="#modal_delete">
-                    <span class="material-symbols-outlined"> <i class="fa-solid fa-trash"></i> </span>
-                  </a>
-  
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <pagination-controls id="server" [maxSize]="10" [autoHide]="false" [responsive]="true"
-        [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
-        (pageChange)="search($event)"></pagination-controls>
-        <div class="row">
-          <div class="col-6 pagelable">
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-  
-  
-  <div id="modal_delete" class="modal fade" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Thông báo</h5>
-        </div>
-        <div class="modal-body">
-          <h6 class="font-weight-semibold text-center">Bạn có muốn tiếp tục xoá?</h6>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-link"  data-dismiss="modal">Huỷ</button>
-          <button class="btn btn-allow" (click)="delete(idItemDelete)"> Đồng ý</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</ng-container>

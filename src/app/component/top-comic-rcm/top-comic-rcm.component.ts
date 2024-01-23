@@ -93,8 +93,6 @@ export class TopComicRcmComponent implements OnInit{
                 updatedAt: comic.updatedAt,
                 status: comic.status,
                 viewCount: comic.viewCount,
-                followed:comic.followed,
-                commented:comic.commented,
                 id: comic.id,
                 image: this.image1,
                 chapter: comic.chapter

@@ -8,7 +8,7 @@
     min-height: 70vh;
     /* background-image: url("../../../assets/images/bg_lib.jpg"); */
     background-repeat: no-repeat;
-    /* background-size: cover; */
+    background-size: cover;
 }
 
 .login-form {
@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 32px;
     width: 700px;
     border-radius: 10px;
 }
@@ -137,23 +138,4 @@ a.forgot-pass {
 a.forgot-pass:hover {
     text-decoration: none;
     color: var(--orange-FDA601);
-}
-
-
-
-.form-group{
-    margin-bottom: 10px;
-}
-
-.btn{
-    margin-bottom: 10px;
-}
-
-.text-back{
-    margin-bottom: 10px;
-}
-
-.text-back>a{
-    color: #288ad6;
-    text-decoration: underline;
 }

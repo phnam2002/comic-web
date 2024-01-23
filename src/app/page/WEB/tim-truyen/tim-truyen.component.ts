@@ -2,7 +2,7 @@ import { Component, HostListener, OnChanges, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DefaultImage, FwError, list } from 'src/app/common/constants';
+import { DefaultImage, FwError } from 'src/app/common/constants';
 import { Comic, PagesRequest } from 'src/app/model/model';
 import { ChapterServicesService } from 'src/app/services/chapter-services/chapter-services.service';
 import { ComicServicesService } from 'src/app/services/comic-services/comic-services.service';
@@ -13,7 +13,6 @@ import { ComicServicesService } from 'src/app/services/comic-services/comic-serv
   styleUrls: ['./tim-truyen.component.css']
 })
 export class TimTruyenComponent implements OnInit {
-  list = list;
   labels: any = {
     previousLabel: 'Trước',
     nextLabel: 'Sau',
@@ -40,24 +39,15 @@ export class TimTruyenComponent implements OnInit {
       this.sort = params['sort'];
       this.type = params['type'];
       this.status = params['status'];
-      console.log(params['type']);
+      this.description = params['description'];
       this.ngOnInit();
     });
   }
 
   ngOnInit(): void {
-    this.getDescription(this.type);
     this.search(1);
-  }
-
-  getDescription(type:any){
-    for (var i = 0; i < list.length; i++) {
-      var item = list[i];
-      if(item.name == this.type){
-        this.description = item.description;
-        break;
-      }
-    }
+    console.log(this.sort);
+    console.log(this.type);
   }
 
   search(page: any) {
@@ -128,8 +118,6 @@ export class TimTruyenComponent implements OnInit {
                 updatedAt: comic.updatedAt,
                 status: comic.status,
                 viewCount: comic.viewCount,
-                followed:comic.followed,
-                commented:comic.commented,
                 id: comic.id,
                 image: this.image1,
                 chapter: comic.chapter

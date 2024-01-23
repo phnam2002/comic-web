@@ -91,6 +91,8 @@
 
 .btn-follow {
     color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
 }
 
 .btn-read-option {
@@ -253,12 +255,4 @@ button:hover {
     margin-top: 15px;
 }
 
-.followed{
-    background-color: red;
-}
-
-.no-followed{
-    background-color: #5cb85c;
-    border-color: #4cae4c;
-}
 

@@ -20,7 +20,7 @@ export class ThongTinChungComponent implements OnInit{
   ){}
 
   detailForm = this.formBuilder.group({
-    username: new FormControl(),
+    userName: new FormControl(),
     fullName: new FormControl(),
     birthday: new FormControl(),
     phoneNumber: new FormControl(),
@@ -37,14 +37,7 @@ export class ThongTinChungComponent implements OnInit{
 
   getDetail(id : any){
     this.userService.getDetail(id).subscribe((item) => {
-      if(item.data){
-        this.userDetail = item.data;
-        if(item.data.role == '0'){
-          this.userDetail.role = 'Bạn đọc';
-        }else if(item.data.role == '1'){
-          this.userDetail.role = 'Quản trị';
-        }
-      }
+      this.userDetail = item;
       console.log(this.userDetail);
     })
   }

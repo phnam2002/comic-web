@@ -74,8 +74,6 @@ export class Comic {
         publishedAt: Date | undefined;
         chapter: Chapter[] | undefined;
         updatedAt: Date | undefined;
-        followed: number | undefined;
-        commented: number | undefined;
         viewCount: number | undefined;
 }
 
@@ -124,29 +122,16 @@ export class ChapterSearchRequest {
 
 export class User{
         id?:number;
-        username?: string;
-        gmail?: string;
+        userName?: string;
         fullName?:string;
         birthday?:string;
         phoneNumber?:string;
         role?:string;
 }
 
-export class UserRequest{
-        id?:number;
-        username?: string;
-        password?: string;
-        gmail?: string;
-        fullName?:string;
-        birthday?:string;
-        phoneNumber?:string;
-        role?:string;
-}
-
-export class FollowedComic{
+export class TypeComic{
         id?: number | undefined;
-        user: User | undefined;
-        comic: Comic | undefined;
-        createdAt: Date | undefined;
+        name: string | undefined;
+        description: string | undefined;
 }
 

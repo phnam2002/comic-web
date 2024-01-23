@@ -1,13 +1,18 @@
 <ng-container>
     <div class="container background">
         <div class="row page-title">
+            <ul class=" page-list">
+                <li>Trang chủ </li>
+                <li>Thể loại</li>
+                <li>Kingdom - Vương Giả Thiên Hạ</li>
+            </ul>
         </div>
         <div class="d-flex align-items-end">
             <h1 class="prm-title" *ngIf="chapterDetail.comic">
-                <a [routerLink]="['/chi-tiet-truyen', chapterDetail.comic.id]">{{chapterDetail.comic.name}}</a>
+                <a href="">{{chapterDetail.comic.name}}</a>
                 <span class="prm-title">- Chapter {{chapterDetail.chap}} </span>
             </h1>
-            <i class="small"> [Cập nhật lúc: {{chapterDetail.updatedAt | date:'hh:mm dd/MM/yyyy'}}] </i>
+            <i class="small"> [Cập nhật lúc: {{chapterDetail.updatedAt}}] </i>
         </div>
         <div class="reading-control">
             <div class="mrb5">
@@ -32,20 +37,21 @@
 
             <div class="chapter-nav" id="chapterNav">
                 <a class="home" href="/" title="Trang chủ"><i class="fa fa-home"></i></a>
-                <a class="home backward" href="" title=""
-                    [routerLink]="['/chi-tiet-truyen', chapterDetail.comic?.id]"><i class="fa fa-list"></i></a>
-                <button type="button" class="prev a_prev disabled" [disabled]="isFirstChapter" (click)="prev()"><i class="fa fa-chevron-left"></i></button>
+                <a class="home backward" href="" title=""><i class="fa fa-list"></i></a>
+                <a class="home changeserver" href="#" title="Đổi server"><i
+                        class="fa fa-undo error"></i><span>1</span></a>
+                <a href="#" class="prev a_prev disabled"><i class="fa fa-chevron-left"></i></a>
 
-                <ng-select class="select-chapter" [items]="chapterSearch" bindLabel="chap" bindValue="chap" [clearable]="false" [virtualScroll]="true" appendTo="body"
-                    [(ngModel)]="selectedChapter" (change)="onOptionSelected()">  
-                    <ng-template ng-label-tmp let-item="item">
-                        Chapter {{item.chap}}
-                    </ng-template>
-                    <ng-template ng-option-tmp let-item="item" let-index="index" >
-                        Chapter {{item.chap}}
-                    </ng-template>
-                </ng-select>
-                <button type="button" class="next a_next" (click)="next()"><i class="fa fa-chevron-right"></i></button>
+                <!-- <ng-select class="select-chapter" [items]="cities | async" >
+                </ng-select> -->
+
+                <select name="ctl00$mainContent$ddlSelectChapter" id="ctl00_mainContent_ddlSelectChapter"
+                    class="select-chapter" data-live-search="">
+                    <option  value="">Chapter 0</option>
+                </select>
+                <a href="" class="next a_next"><i class="fa fa-chevron-right"></i></a>
+                <a class="follow-link btn btn-success" href="" data-id="86129"><i class="fa fa-heart"></i> <span> Theo
+                        dõi</span></a>
             </div>
         </div>
         <div class="image-background" *ngIf="urls">
@@ -54,8 +60,8 @@
             </ng-container>
         </div>
         <div class="chapter-nav-bottom text-center">
-            <button type="button" class="btn btn-danger" [disabled]="isFirstChapter" (click)="prev()"><i class="fa fa-chevron-left"></i> Chap trước</button>
-            <button type="button" class="btn btn-danger" (click)="next()">Chap sau <i class="fa fa-chevron-right"></i></button>
+            <a href="" class="btn btn-danger disabled"><i class="fa fa-chevron-left"></i> Chap trước</a>
+            <a href="" class="btn btn-danger">Chap sau <i class="fa fa-chevron-right"></i></a>
         </div>
     </div>
 

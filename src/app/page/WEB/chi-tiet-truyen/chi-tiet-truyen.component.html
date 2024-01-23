@@ -1,6 +1,11 @@
 <ng-container>
     <div class="container background">
         <div class="row page-title">
+            <ul class=" page-list">
+                <li>Trang chủ </li>
+                <li>Thể loại</li>
+                <li>Kingdom - Vương Giả Thiên Hạ</li>
+            </ul>
             <div class="col-sm-8">
                 <div class="comic-title">
                     <h1 id="item-detail">{{comicDetail.name}}</h1>
@@ -55,7 +60,7 @@
                             <li>
                                 <a class="title slide-title action"
                                     [routerLink]="['/chi-tiet-truyen', comicDetail.id]">{{comicDetail.name}}</a>
-                                Xếp hạng --- Lượt đánh giá.
+                                Xếp hạng 3.7/5 - 74671 Lượt đánh giá.
                             </li>
                             <li>
                                 <span class="fa fa-star checked"></span>
@@ -64,22 +69,13 @@
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </li>
-                            <div class="button" *ngIf="followed == false ;else other_content">
-                                <a type="button" class="btn-follow action no-followed " (click)="follow()"><i class="fa fa-heart"></i> Theo dõi</a>
-                                <span>{{comicDetail.followed}} Lượt theo dõi</span>
+                            <div class="button">
+                                <a class="btn-follow action" href=""><i class="fa fa-heart"></i> Theo dõi</a>
+                                <span>126.233 Lượt theo dõi</span>
                             </div>
-
-                            <ng-template #other_content>
-                                <div class="button" >
-                                    <a type="button" class="btn-follow action followed" (click)="unfollow()">Bỏ Theo dõi</a>
-                                    <span>{{comicDetail.followed}} Lượt theo dõi</span>
-                                </div>
-                            </ng-template>
-
-
-                            <div class="button" *ngIf="this.comicDetail.chapter">
-                                <a class="btn-read-option action" href="" [routerLink]="['/chi-tiet-chap',this.comicDetail.chapter[total-1].id]">Đọc từ đầu</a>
-                                <a class="btn-read-option action" href="" [routerLink]="['/chi-tiet-chap',this.comicDetail.chapter[0].id]">Đọc mới nhất</a>
+                            <div class="button">
+                                <a class="btn-read-option action" href="">Đọc từ đầu</a>
+                                <a class="btn-read-option action" href="">Đọc mới nhất</a>
                                 <a class="btn-read-continue action" href="">Đọc tiếp <i
                                         class="fa fa-angle-right"></i></a>
                             </div>
@@ -121,7 +117,7 @@
                 <div class="align-left">
                     <h3 class="page-item"><i class="fa fa-list"></i> Danh sách chương
                     </h3>
-                    <a class="btn-chapter-add" [routerLink]="['/them-chap', comicDetail.id]" *ngIf="currentUser && currentUser.role=='1'"><i class="fa fa-plus"></i> Thêm chương</a>
+                    <a class="btn-chapter-add" [routerLink]="['/them-chap', comicDetail.id]" *ngIf="currentUser"><i class="fa fa-plus"></i> Thêm chương</a>
 
                     <div class="row">
                         <div class="col-sm-6 no-wrap">Số chương</div>
@@ -142,7 +138,7 @@
                             </div>
                             <div class="row chapter-info" *ngIf="i > 9 && showAdditionalRows">
                                 <div id="chapter-number" class="col-sm-6 no-wrap">
-                                    <a href="" [routerLink]="['/chi-tiet-chap',item.id]">Chapter {{item.chap}}</a>
+                                    <a href="" [routerLink]="['chi-tiet-chap',item.id]">Chapter {{item.chap}}</a>
                                 </div>
                                 <div class="col-sm-4 no-wrap small">{{item.updatedAt | date:'HH:mm:ss dd/MM/yyyy'}}
                                 </div>
